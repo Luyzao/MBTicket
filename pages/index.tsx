@@ -148,7 +148,7 @@ const renderizarValor = (rowData:any) => {
           alt={""}
           width={2980}
           height={2080}
-          className="w-full shadow-6 mb-5 h-auto border-round-3xl"
+          className="w-auto shadow-6 mb-5 h-14rem border-round-3xl"
         />
         <div className="card  border-round-3xl">
         <Toolbar className="mb-4 w-full border-round-2xl" left={headerLeft} right={headerRight} style={{ backgroundColor: "#8c52ff" }}></Toolbar>
