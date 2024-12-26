@@ -3,90 +3,120 @@
     "id": 1,
     "nome": "Ingresso para Conferência de Tecnologia",
     "valor": 150.0,
-    "disponivel": true
+    "disponivel": true,
+    "data": "15/01/2025",
+    "organizacao": "Universidade de Tecnologia da Informação"
   },
   {
     "id": 2,
     "nome": "Ingresso para Show de Música",
     "valor": 120.0,
-    "disponivel": false
+    "disponivel": false,
+    "data": "20/02/2025",
+    "organizacao": "Empreendimento Cultural XYZ"
   },
   {
     "id": 3,
     "nome": "Ingresso para Festival Gastronômico",
     "valor": 80.0,
-    "disponivel": true
+    "disponivel": true,
+    "data": "10/03/2025",
+    "organizacao": "Instituto Gastronômico Gourmet"
   },
   {
     "id": 4,
     "nome": "Ingresso para Exposição de Arte",
     "valor": 50.0,
-    "disponivel": true
+    "disponivel": true,
+    "data": "25/01/2025",
+    "organizacao": "Galeria de Arte Moderna"
   },
   {
     "id": 5,
     "nome": "Ingresso para Workshop de Programação",
     "valor": 200.0,
-    "disponivel": false
+    "disponivel": false,
+    "data": "05/04/2025",
+    "organizacao": "Academia de Desenvolvimento de Software"
   },
   {
     "id": 6,
     "nome": "Ingresso para Palestra Motivacional",
     "valor": 100.0,
-    "disponivel": true
+    "disponivel": true,
+    "data": "18/01/2025",
+    "organizacao": "Instituto de Motivação e Coaching"
   },
   {
     "id": 7,
     "nome": "Ingresso para Concerto de Orquestra",
     "valor": 250.0,
-    "disponivel": true
+    "disponivel": true,
+    "data": "15/02/2025",
+    "organizacao": "Orquestra Sinfônica da Cidade"
   },
   {
     "id": 8,
     "nome": "Ingresso para Feira de Tecnologia",
     "valor": 120.0,
-    "disponivel": false
+    "disponivel": false,
+    "data": "25/03/2025",
+    "organizacao": "Feira Anual de Inovações Tecnológicas"
   },
   {
     "id": 9,
     "nome": "Ingresso para Competição de E-Sports",
     "valor": 90.0,
-    "disponivel": true
+    "disponivel": true,
+    "data": "30/01/2025",
+    "organizacao": "Clube de E-Sports Elite"
   },
   {
     "id": 10,
     "nome": "Ingresso para Conferência de Negócios",
     "valor": 180.0,
-    "disponivel": true
+    "disponivel": true,
+    "data": "10/02/2025",
+    "organizacao": "Federação de Comércio e Indústria"
   },
   {
     "id": 11,
     "nome": "Ingresso para Festival de Cinema",
     "valor": 70.0,
-    "disponivel": false
+    "disponivel": false,
+    "data": "12/04/2025",
+    "organizacao": "Cineclube Local"
   },
   {
     "id": 12,
     "nome": "Ingresso para Evento de Stand-up Comedy",
     "valor": 60.0,
-    "disponivel": true
+    "disponivel": true,
+    "data": "05/02/2025",
+    "organizacao": "Teatro Humor & Arte"
   },
   {
     "id": 13,
     "nome": "Ingresso para Encontro de Desenvolvedores",
     "valor": 150.0,
-    "disponivel": false
+    "disponivel": false,
+    "data": "08/03/2025",
+    "organizacao": "Associação de Desenvolvimento de Software"
   },
   {
     "id": 14,
     "nome": "Ingresso para Oficina de Fotografia",
     "valor": 130.0,
-    "disponivel": true
+    "disponivel": true,
+    "data": "22/01/2025",
+    "organizacao": "Escola de Artes Visuais"
   },
   {
     "id": 15,
     "nome": "Ingresso para Mostra de Dança",
     "valor": 50.0,
-    "disponivel": true
+    "disponivel": true,
+    "data": "28/01/2025",
+    "organizacao": "Companhia de Dança Moderna"
   }
 ]

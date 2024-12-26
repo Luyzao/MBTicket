@@ -15,7 +15,6 @@ import { IoSearchOutline } from "react-icons/io5";
 import { Toolbar } from "primereact/toolbar";
 import iconMB from "@/styles/icon.png";
 
-
 export default function Home() {
   const [filters, setFilters] = useState({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
@@ -57,46 +56,45 @@ export default function Home() {
   };
 
   const headerLeft = (
-    <div
-      className="table-header p-3   w-full"
-     
-    >
+    <div className="table-header p-3   w-full">
       <div className="flex gap-8 w-full items-center">
         <h2 className="font-extrabold text-white text-3xl">Tickets</h2>
       </div>
     </div>
   );
   const headerRight = (
-    <div
-      className="table-header p-3   w-full"
-      
-    >
+    <div className="table-header p-3   w-full">
       <div className="flex gap-8 w-full items-center">
-        
         <div className="flex bg-white border-round-3xl px-3 shadow-5 items-center">
-        <IoSearchOutline className="text-black"/>
-        <InputText
-          type="text"
-          value={globalFilterValue}
-          onChange={onGlobalFilterChange}
-          className="p-1 border-0 px-3 text-black"
-          placeholder="Pesquisar"
-          style={{ maxWidth: "300px" }} 
-        />
+          <IoSearchOutline className="text-black" />
+          <InputText
+            type="text"
+            value={globalFilterValue}
+            onChange={onGlobalFilterChange}
+            className="p-1 border-0 px-3 text-black"
+            placeholder="Pesquisar"
+            style={{ maxWidth: "300px" }}
+          />
         </div>
       </div>
     </div>
   );
 
+  const pagamentoRouter = (Id: number) => {
+    window.location.href = `/pagamento/?id=${Id}`;
+  };
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const TicketsDisponivel = (DataRow: any) => {
+  const TicketsDisponivel = (rowData: any) => {
     return (
       <>
-        {DataRow.disponivel ? (
+        {rowData.disponivel ? (
           <Button
             label="COMPRAR"
             className="w-11  text-white p-1 border-round-3xl px-3 hover:bg-purple-800"
-            style={{ backgroundColor: "#8c52ff" }}/>
+            onClick={() => pagamentoRouter(rowData.id)}
+            style={{ backgroundColor: "#8c52ff" }}
+          />
         ) : (
           <Button
             disabled
@@ -107,38 +105,61 @@ export default function Home() {
       </>
     );
   };
-
-  const TicketsImage = () => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const TicketsImage = (rowData:any) => {
     return (
       <>
         <div className="flex items-center justify-center">
           {
+            <div className="items-center p-1" style={{
+              display:"flex",
+              flexDirection:"column"
+            }}>
             <Image
               src={iconTicket}
               alt={"ticket"}
               width={1920}
               height={1080}
-              className=" w-auto h-6rem p-2"
+              className=" w-auto h-6rem "
             />
+            <p className="text-xs">
+              {rowData.data}
+            </p>
+            </div>
           }
         </div>
       </>
     );
   };
 
- // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const formatarValor = (valor:any) => {
-  return new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  }).format(valor);
-};
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const formatarNome = (rowData: any) =>{
+      return(
+         <>
+            <div>
+              <p>
+                {rowData.nome}
+              </p>
+              <p className="text-xs font-thin">
+                {rowData.organizacao}
+              </p>
+            </div>
+         </>
+      )
+  }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const formatarValor = (valor: any) => {
+    return new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(valor);
+  };
 
- // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const renderizarValor = (rowData:any) => {
-  return formatarValor(rowData.valor);
-};
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const renderizarValor = (rowData: any) => {
+    return formatarValor(rowData.valor);
+  };
 
   return (
     <section className="bg-gray-900 w-full py-8 flex justify-center">
@@ -151,7 +172,12 @@ const renderizarValor = (rowData:any) => {
           className="w-auto shadow-6 mb-5 h-14rem border-round-3xl"
         />
         <div className="card  border-round-3xl">
-        <Toolbar className="mb-4 w-full border-round-2xl" left={headerLeft} right={headerRight} style={{ backgroundColor: "#8c52ff" }}></Toolbar>
+          <Toolbar
+            className="mb-4 w-full border-round-2xl"
+            left={headerLeft}
+            right={headerRight}
+            style={{ backgroundColor: "#8c52ff" }}
+          ></Toolbar>
           <DataTable
             value={Tickets}
             paginator
@@ -171,38 +197,45 @@ const renderizarValor = (rowData:any) => {
             <Column
               field="nome"
               header="Nome"
+              body={formatarNome}
               sortable
               className="font-bold"
-              style={{ minWidth: "25rem" , height:"3rem"}}
+              style={{ minWidth: "25rem", height: "3rem" }}
             />
-              <Column
-                body={renderizarValor}
-                header="Valor"
-                field="valor"
-                sortable
-                style={{ minWidth: "7rem" }}
-                className="text-left"
-              />
+            <Column
+              body={renderizarValor}
+              header="Valor"
+              field="valor"
+              sortable
+              style={{ minWidth: "7rem" }}
+              className="text-left"
+            />
             <Column body={TicketsDisponivel} style={{ minWidth: "12rem" }} />
           </DataTable>
-          <div
-        className="flex w-full justify-center items-center text-center mt-1 z-50"
-       
-      >
-        <div className="flex items-center pr-2 justify-content-around shadow-6 px-3 m-2 border-round-2xl"  style={{
-          backgroundColor: "#8c52ff",
-        }}>
-          <Image
-            src={iconMB}
-            alt={"icon-mbTickts"}
-            width={1920}
-            height={1080}
-            className=" w-auto h-5rem"
-          />
-          <h1 className="text-white font-extrabold text-left text-xl w-7">Precisando de ajuda para comprar seu ticket?</h1>
-          <Button label="Falar com suporte" onClick={()=>window.open("https://w.app/SuporteDaMbTicket")} className="bg-white text-black p-2 px-3 border-round-3xl"/>
-        </div>
-      </div>
+          <div className="flex w-full justify-center items-center text-center mt-1 z-50">
+            <div
+              className="flex items-center pr-2 justify-content-around shadow-6 px-3 m-2 border-round-2xl"
+              style={{
+                backgroundColor: "#8c52ff",
+              }}
+            >
+              <Image
+                src={iconMB}
+                alt={"icon-mbTickts"}
+                width={1920}
+                height={1080}
+                className=" w-auto h-5rem"
+              />
+              <h1 className="text-white font-extrabold text-left text-xl w-7">
+                Precisando de ajuda para comprar seu ticket?
+              </h1>
+              <Button
+                label="Falar com suporte"
+                onClick={() => window.open("https://w.app/SuporteDaMbTicket")}
+                className="bg-white text-black p-2 px-3 border-round-3xl"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
