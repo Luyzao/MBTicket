@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="flex justify-center items-center text-center gap-3 py-3 fonte-thin bg-gray-950 border-top-1 border-blue-950">
         <FaReact size={25} className="text-cyan-500 spin-animation" />
 
-        <div>
+        <div className="md:text-md text-xs">
           Site desenvolvido por <span className="font-bold"> Luiz Gustavo</span>
         </div>
         <Link target="_blank" href={"https://github.com/Luyzao"}>
