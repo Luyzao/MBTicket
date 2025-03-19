@@ -44,7 +44,6 @@ export default function Home() {
 
   const [globalFilterValue, setGlobalFilterValue] = useState("");
 
-  
   const onGlobalFilterChange = (e: any) => {
     const value = e.target.value;
     const updatedFilters = { ...filters };
@@ -104,7 +103,7 @@ export default function Home() {
       </>
     );
   };
-  
+
   const TicketsImage = (rowData: any) => {
     return (
       <>
@@ -187,7 +186,7 @@ export default function Home() {
             dataKey="id"
             filters={filters}
             filterDisplay="menu"
-            className="w-full border-round-2xl p-3 pt-2 bg-white pb-4 mb-5 shadow-8 "
+            className="w-5rem border-round-2xl p-3 pt-2 bg-white pb-4 mb-5 shadow-8 "
             globalFilterFields={["nome", "valor"]}
             emptyMessage="Evento não econtrado."
           >
